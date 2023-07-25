@@ -1,6 +1,6 @@
 # SinatraNFSN
 
-Example [Sinatra](http://www.sinatrarb.com) app for [NearlyFreeSpeech.net](https://www.nearlyfreespeech.net) (NFSN) using the Thin webserver.
+Example [Sinatra](http://www.sinatrarb.com) app for [NearlyFreeSpeech.net](https://www.nearlyfreespeech.net) (NFSN) using the Puma webserver.
 
 ## Installing
 
@@ -8,7 +8,7 @@ Create a site at NFSN of the type Apache 2.4 Generic. Enable SSH access if it's 
 
 ```bash
 cd /home/protected/
-git clone --depth=1 https://github.com/clpo13/SinatraNFSN.git
+git clone --depth=1 https://github.com/joewils/SinatraNFSN.git
 cd SinatraNFSN
 bundle install --path ~/.gem
 ```
