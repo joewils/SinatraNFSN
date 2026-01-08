@@ -11,6 +11,8 @@ cd /home/protected/
 git clone --depth=1 https://github.com/joewils/SinatraNFSN.git
 cd SinatraNFSN
 bundle config set --local path '/home/private//.gem'
+# if the above doesn't work try this:
+# bundle config set path 'vendor/bundle'
 bundle install
 ```
 
