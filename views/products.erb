@@ -1,0 +1,32 @@
+<h2>Products</h2>
+<p>Showing <%= @records.count %> of <%= @total %> records (Page <%= @page %>)</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Category</th>
+    <th>Color</th>
+    <th>Price</th>
+  </tr>
+  <% @records.each do |r| %>
+  <tr>
+    <td><%= r[:product_key] %></td>
+    <td><%= r[:product_name] %></td>
+    <td><%= r[:brand] %></td>
+    <td><%= r[:category_name] %></td>
+    <td><%= r[:color] %></td>
+    <td>$<%= sprintf('%.2f', r[:price] || 0) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <% if @page > 1 %>
+    <a href="/products?page=<%= @page - 1 %>">&laquo; Prev</a>
+  <% end %>
+  <% if @page < @total_pages %>
+    <a href="/products?page=<%= @page + 1 %>">Next &raquo;</a>
+  <% end %>
+</p>

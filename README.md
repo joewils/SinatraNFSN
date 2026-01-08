@@ -28,7 +28,28 @@ Add a proxy with the default settings:
 - Document Root: `/`
 - Target Port: `8080`
 
-That's it! The daemon will start automatically after it's created. If there are no problems, you should see the words "Hello, world! This is Sinatra x.y.z." at the site's web address.
+That's it! The daemon will start automatically after it's created. If there are no problems, you should see the dashboard at the site's web address.
+
+## SQLite Database
+
+The app includes a SQLite database (`nfsn.db`) populated from CSV files in the `contoso/` folder. To seed or reset the database:
+
+```bash
+bundle exec ruby db/seed.rb
+```
+
+### Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Dashboard with table counts |
+| `/customers` | Customer list (paginated) |
+| `/stores` | Store list (paginated) |
+| `/products` | Product list (paginated) |
+| `/orders` | Order list (paginated) |
+| `/order_rows` | Order line items (paginated) |
+| `/dates` | Date dimension table (paginated) |
+| `/currency` | Currency exchange rates (paginated) |
 
 ## Troubleshooting
 

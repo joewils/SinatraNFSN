@@ -1,0 +1,32 @@
+<h2>Dates</h2>
+<p>Showing <%= @records.count %> of <%= @total %> records (Page <%= @page %>)</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Date</th>
+    <th>Year</th>
+    <th>Quarter</th>
+    <th>Month</th>
+    <th>Day of Week</th>
+    <th>Working Day</th>
+  </tr>
+  <% @records.each do |r| %>
+  <tr>
+    <td><%= r[:date] %></td>
+    <td><%= r[:year] %></td>
+    <td><%= r[:quarter] %></td>
+    <td><%= r[:month] %></td>
+    <td><%= r[:day_of_week] %></td>
+    <td><%= r[:working_day] == 1 ? 'Yes' : 'No' %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <% if @page > 1 %>
+    <a href="/dates?page=<%= @page - 1 %>">&laquo; Prev</a>
+  <% end %>
+  <% if @page < @total_pages %>
+    <a href="/dates?page=<%= @page + 1 %>">Next &raquo;</a>
+  <% end %>
+</p>

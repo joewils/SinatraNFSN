@@ -1,0 +1,28 @@
+<h2>Currency Exchange Rates</h2>
+<p>Showing <%= @records.count %> of <%= @total %> records (Page <%= @page %>)</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Date</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Exchange Rate</th>
+  </tr>
+  <% @records.each do |r| %>
+  <tr>
+    <td><%= r[:date] %></td>
+    <td><%= r[:from_currency] %></td>
+    <td><%= r[:to_currency] %></td>
+    <td><%= sprintf('%.5f', r[:exchange] || 0) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <% if @page > 1 %>
+    <a href="/currency?page=<%= @page - 1 %>">&laquo; Prev</a>
+  <% end %>
+  <% if @page < @total_pages %>
+    <a href="/currency?page=<%= @page + 1 %>">Next &raquo;</a>
+  <% end %>
+</p>

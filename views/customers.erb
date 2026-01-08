@@ -1,0 +1,32 @@
+<h2>Customers</h2>
+<p>Showing <%= @records.count %> of <%= @total %> records (Page <%= @page %>)</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Age</th>
+    <th>Occupation</th>
+  </tr>
+  <% @records.each do |r| %>
+  <tr>
+    <td><%= r[:customer_key] %></td>
+    <td><%= r[:given_name] %> <%= r[:surname] %></td>
+    <td><%= r[:city] %></td>
+    <td><%= r[:country] %></td>
+    <td><%= r[:age] %></td>
+    <td><%= r[:occupation] %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <% if @page > 1 %>
+    <a href="/customers?page=<%= @page - 1 %>">&laquo; Prev</a>
+  <% end %>
+  <% if @page < @total_pages %>
+    <a href="/customers?page=<%= @page + 1 %>">Next &raquo;</a>
+  <% end %>
+</p>

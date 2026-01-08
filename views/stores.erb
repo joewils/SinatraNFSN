@@ -1,0 +1,32 @@
+<h2>Stores</h2>
+<p>Showing <%= @records.count %> of <%= @total %> records (Page <%= @page %>)</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>Square Meters</th>
+    <th>Status</th>
+    <th>Open Date</th>
+  </tr>
+  <% @records.each do |r| %>
+  <tr>
+    <td><%= r[:store_key] %></td>
+    <td><%= r[:country_name] %></td>
+    <td><%= r[:state] %></td>
+    <td><%= r[:square_meters] %></td>
+    <td><%= r[:status] %></td>
+    <td><%= r[:open_date] %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <% if @page > 1 %>
+    <a href="/stores?page=<%= @page - 1 %>">&laquo; Prev</a>
+  <% end %>
+  <% if @page < @total_pages %>
+    <a href="/stores?page=<%= @page + 1 %>">Next &raquo;</a>
+  <% end %>
+</p>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NFSN SQLite Test - <%= @title || 'Home' %></title>
+</head>
+<body>
+  <h1>NFSN SQLite Test</h1>
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/customers">Customers</a> |
+    <a href="/stores">Stores</a> |
+    <a href="/products">Products</a> |
+    <a href="/orders">Orders</a> |
+    <a href="/order_rows">Order Rows</a> |
+    <a href="/dates">Dates</a> |
+    <a href="/currency">Currency Exchange</a>
+  </nav>
+  <hr>
+  <%= yield %>
+</body>
+</html>
